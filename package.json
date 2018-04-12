@@ -7,8 +7,8 @@
   "unpkg": "dist/rollup-module-boilerplate.umd.js",
   "scripts": {
     "prepublish": "npm run build",
-    "lint": "eslint src/ test/",
-    "lint:watch": "esw src/ test/ -w",
+    "lint": "eslint *.js src/ test/",
+    "lint:watch": "esw *.js src/ test/ -w",
     "ava": "ava test/ --verbose",
     "ava:watch": "ava test/ --watch --verbose",
     "dev": "concurrently -p \"[{name}]\" -n \"lint,ava\" \"npm run lint:watch\" \"npm run ava:watch\"",
