@@ -1,5 +1,9 @@
 # A Rollup Module Boilerplate
 
+Supported features:
+
+
+
 ## Clone
 
 Run `git clone https://github.com/malash/rollup-module-boilerplate.git`
@@ -13,7 +17,7 @@ Select branch, like `git checkout module`. All branch here:
 | `module` | Release a plain JavaScript NPM module |
 | `react` | Release a React Component NPM module |
 
-## Git
+## Init Git
 
 Run `rm -rf ./.git` and `git init` to init a new repo.
 
@@ -40,4 +44,4 @@ More `npm` script in `package.json`.
 
 ## Other files
 
-All files could be rewrite, like `.babelrc` / `.eslintrc` and so on.
+All files could be rewrite, like `README.md` / `.babelrc` / `.eslintrc` and so on.
