@@ -1,6 +1,13 @@
 {
-  "extends": "airbnb-base",
+  "root": true,
+  "extends": "airbnb",
+  "env": {
+      "browser": true,
+      "node": true
+  },
   "plugins": [
+    "react",
+    "jsx-a11y",
     "import"
   ],
   "parser": "babel-eslint",
@@ -14,6 +21,7 @@
     "no-underscore-dangle": ["off", { "allowAfterThis": true, "allowAfterSuper": true }],
     "no-restricted-globals": ["off"],
     "guard-for-in": ["off"],
+    "react/jsx-filename-extension": ["off"],
     "import/prefer-default-export": ["off"],
     "import/no-extraneous-dependencies": ["error", {
       "devDependencies": [
