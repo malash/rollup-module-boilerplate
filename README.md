@@ -2,7 +2,14 @@
 
 Supported features:
 
-
+* Use [Rollup](https://github.com/rollup/rollup) .
+* Support babel `stage-0` (can be customized).
+* Auto replace `NODE_ENV`
+* Resolve [Node.js module](https://github.com/rollup/rollup-plugin-commonjs)
+* Show bundle [file size](https://github.com/ritz078/rollup-plugin-filesize)
+* Output `es` / `cjs` / `umd` and minified versions.
+* Use [AVA](https://github.com/avajs/ava) for tests.
+* Support React and [jsdom](https://github.com/jsdom/jsdom) (in `react` branch).
 
 ## Clone
 
