@@ -9,7 +9,7 @@ import { name, version, dependencies, devDependencies, peerDependencies } from '
 const target = process.env.TARGET || 'es';
 const env = process.env.NODE_ENV || 'development';
 const isProd = env === 'production';
-const banner =`/*
+const banner = `/*
  * @license
  * ${name} v${version}
  * (c) 2018-${new Date().getFullYear()} Malash <i@malash.me>
@@ -27,7 +27,7 @@ const config = {
       presets: [
         "react",
         ['es2015', { modules: false }],
-        'stage-0'
+        'stage-0',
       ],
       plugins: ['external-helpers'],
     }),
@@ -43,11 +43,11 @@ const config = {
 };
 
 if (target === 'umd') {
-  config.external = [];
+  config.external = Object.keys(Object.assign({}, peerDependencies));
   config.plugins = [].concat(
     [resolve()],
     config.plugins,
-    [replace({ 'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV) })]
+    [replace({ 'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV) })],
   );
 }
 
@@ -56,9 +56,9 @@ if (isProd) {
     config.plugins,
     [uglify({
       output: {
-        comments: (node, comment) => comment.type === "comment2" && /@preserve|@license|@cc_on/i.test(comment.value),
+        comments: (node, comment) => comment.type === 'comment2' && /@preserve|@license|@cc_on/i.test(comment.value),
       },
-    })]
+    })],
   );
 }
 
