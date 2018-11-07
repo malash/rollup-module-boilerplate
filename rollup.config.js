@@ -19,13 +19,19 @@ const banner = `/*
  */`;
 
 const config = {
-  input: 'src/index.js',
+  input: 'src/index.ts',
   external: Object.keys(Object.assign({}, dependencies, devDependencies, peerDependencies)),
   plugins: [
     babel({
       babelrc: true,
       exclude: 'node_modules/**',
       externalHelpers: true,
+      extensions: ['.js', '.ts'],
+    }),
+    resolve({
+      extensions: ['.ts', '.js', '.jsx', '.json'],
+      // resolve node_modules only in umd build
+      only: target === 'umd' ? null : [/^\/.*$/],
     }),
     commonjs(),
     filesize(),
@@ -41,7 +47,6 @@ const config = {
 if (target === 'umd') {
   config.external = Object.keys(Object.assign({}, peerDependencies));
   config.plugins = [].concat(
-    [resolve()],
     config.plugins,
     [replace({ 'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV) })],
   );
